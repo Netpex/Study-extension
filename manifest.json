@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Unamed study help",
+    "description": "Help with study 2",
+    "version": "1.0",
+    "background": {
+        "service_worker": "/javascript/background.js"
+    },
+    "permissions": ["storage", "webNavigation", "scripting"],
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "action": {
+      "default_popup": "/views/welcome.html",
+      "default_icon": "/images/study.png"
+    }
+  }

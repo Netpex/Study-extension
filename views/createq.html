@@ -1,0 +1,287 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../OpenSans-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: bold;
+            font-weight: 700;
+            src: url('../OpenSans-Bold.ttf') format('truetype');
+        }
+
+        html {
+            background: #27272a;
+        }
+
+        body {
+            margin: 0;
+            width: max-content;
+            color: #FAFAFA;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+        #menu {
+            margin: 0;
+            padding: 15px;
+            background: #60A917;
+        }
+
+        #dark-menu {
+            margin: 0;
+            padding: 15px;
+            background: #008A00;
+        }
+
+        img {
+            height: 30px;
+        }
+
+        ul {
+            padding: 0px;
+        }
+
+        ul>li {
+            padding: 10px;
+            list-style: none;
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px;
+            width: 250px;
+            border: 1px solid #cccccc
+        }
+
+        a {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+        }
+
+        a:hover {
+            background-color: #4d4d4d;
+        }
+
+        p {
+            cursor: default;
+            margin: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            cursor: pointer;
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+            border: 0px solid #cccccc
+        }
+
+        .active,
+        .btn:hover {
+            background-color: #4d4d4d;
+        }
+
+        .z {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+            border: 0px solid #cccccc
+        }
+
+        .x {
+            background-color: #4d4d4d;
+        }
+
+        .full-width {
+            display: inline-block;
+            width: 245px;
+        }
+
+        .half-width {
+            display: inline-block;
+            width: 150;
+        }
+
+        .sub-width {
+            display: inline-block;
+            width: 100;
+        }
+
+        .spacer {
+            margin-top: 15px;
+        }
+
+        .group div {
+            padding: 15px;
+            float: left;
+        }
+
+        .btn-group div {
+            cursor: pointer;
+            float: left;
+        }
+
+        .scroll {
+            height: 125px;
+            overflow-y: auto
+        }
+
+        .pop-out {
+            margin: 0;
+            padding: 5px;
+            padding-bottom: 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            background: #008A00;
+            border: 0px solid #cccccc
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>
+            <img src="/images/study.png" />
+            <h3>Study help thing</h4>
+        </li>
+        <li style="margin-top:-25px">
+            <p> Question type </p>
+            <div class="btn-group" style="width:100%">
+                <button id="m" class="btn type active">Choice</button>
+                <button id="s" class="btn type">Scramble</button>
+                <button id="p" class="btn type">Phrase</button>
+            </div>
+            <li id="creatq" style="margin-top:-25px">
+                <h3 id="qtype">Multiple Choice</h3>
+                <div class="question-creator div m">
+                    <form id="questionM">
+                        <p> Question: </p>
+                        <input type="text" class="full-width" id="question" name="question" placeholder="¿Como estas?"><br>
+                        <p> Options: </p>
+                        <select name="questionopt" id="moptions" class="z">
+                                    <option class="x" value="1">Correct Option</option>
+                                    <option class="" value="2">Other Option 1</option>
+                                    <option class="" value="3">Other Option 2</option>
+                                    <option class="" value="4">Other Option 3</option>
+                                </select><br>
+                        <div class="option option1">
+                            <input id="multiplechoice" type="text" style="margin-top: 5px" class="full-width" id="1choice" name="option1" placeholder="Correct"><br>
+                        </div>
+                        <div class="option option2 hidden">
+                            <input id="multiplechoice" type="text" style="margin-top: 5px" class="full-width" id="2choice" name="option2" placeholder="Incorrect"><br>
+                        </div>
+                        <div class="option option3 hidden">
+                            <input id="multiplechoice" type="text" style="margin-top: 5px" class="full-width" id="3choice" name="option3" placeholder="Incorrect"><br>
+                        </div>
+                        <div class="option option4 hidden">
+                            <input id="multiplechoice" type="text" style="margin-top: 5px" class="full-width" id="4choice" name="option4" placeholder="Incorrect"><br>
+                        </div>
+                        <p> Time to answer: </p>
+                        <select name="questiondur" id="options" class="z">
+                              <option class="x" value="1">10 Seconds</option>
+                              <option class="" value="2">30 Seconds</option>
+                              <option class="" value="3">1 Minute</option>
+                              <option class="" value="4">No limit</option>
+                            </select>
+                        <br>
+                        <br>
+                        <div class="q pop-out">
+                            <h3 id="qtype">Example:</h3>
+                            <h3 id="qtitle">¿Como estas?</h3>
+                            <p id="qtime" style="margin-top: -10px" class="sub-width z">10 Seconds</p>
+                            <div class="group" style="width:100%">
+                                <button id="stcorrect" class="z x" style="width:100">Estoy bien</button>
+                                <button id="stother1" class="z" style="width:100">Estoy bean</button>
+                            </div>
+                            <div class="group" style="width:100%; margin-top: 5px">
+                                <button id="stother2" class="z" style="width:100">Hoy buen</button>
+                                <button id="stother3" class="z" style="width:100">Soy benni</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="question-creator div s hidden">
+                    <form id="questionS">
+                        <p> Question: </p>
+                        <input type="text" class="full-width" id="question" name="question" placeholder="¿De dónde eres?"><br>
+                        <p> Answer: </p>
+                        <input type="text" class="full-width" id="answer" name="answer" placeholder="Soy de Yelm WA"><br>
+                        <p> Time to answer: </p>
+                        <select name="questiondur" id="options" class="z">
+                              <option class="x" value="1">10 Seconds</option>
+                              <option class="" value="2">30 Seconds</option>
+                              <option class="" value="3">1 Minute</option>
+                              <option class="" value="4">No limit</option>
+                            </select>
+                        <br>
+                        <br>
+                        <div class="q pop-out">
+                            <h3 id="qtype">Example:</h3>
+                            <h3 id="qtitle">¿Como estas?</h3>
+                            <p id="qtime" style="margin-top: -10px" class="sub-width z">10 Seconds</p>
+                            <div class="group" style="width:100%">
+                                <button id="stcorrect" class="z x" style="width:100">Soy de Yelm WA</button>
+                                <button id="stother1" class="z" style="width:100">De soy WA Yelm</button>
+                            </div>
+                            <div class="group" style="width:100%; margin-top: 5px">
+                                <button id="stother2" class="z" style="width:100">WA Yelm soy de</button>
+                                <button id="stother3" class="z" style="width:100">Yelm soy de WA</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="question-creator div p hidden">
+                    <form id="questionP">
+                        <p> Question: </p>
+                        <input type="text" class="full-width" id="question" name="question" placeholder="¿Como estas?"><br>
+                        <p> Answer: </p>
+                        <input type="text" class="full-width" id="answer" name="answer" placeholder="Estoy bien"><br>
+                        <p> Time to answer: </p>
+                        <select name="questiondur" id="options" class="z">
+                                <option class="x" value="1">10 Seconds</option>
+                                <option class="" value="2">30 Seconds</option>
+                                <option class="" value="3">1 Minute</option>
+                                <option class="" value="4">No limit</option>
+                            </select>
+                        <br>
+                        <br>
+                        <div class="q pop-out">
+                            <h3 id="qtype">Example:</h3>
+                            <h3 id="qtitle">¿Como estas?</h3>
+                            <p id="qtime" style="margin-top: -10px" class="sub-width z">10 Seconds</p><br>
+                            <input type="text" class="sub-width" style="width: 200;" id="option" name="option" placeholder="Estoy bien">
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <button id="createq" class="full-width btn">Create Question</button>
+            <button id="ret" class="btn">Return</button>
+        </li>
+    </ul>
+    <ul id="dark-menu">
+        <p id="credit"> Created by: Justin Camin </p>
+    </ul>
+    <script src="/javascript/questions.js"></script>
+</body>
+
+</html>

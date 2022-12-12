@@ -1,0 +1,469 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        :root {
+  --background-color: rgb(6, 11, 25);
+  --border-color: rgb(255, 255, 255, 0.1);
+  --highlight-color: rgb(126, 87, 194);
+  --yt-color: rgb(229, 57, 53);
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, a, p, span, i {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  color: white;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav .nav-section {
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 1rem;
+  border-left: 1px solid var(--border-color);
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-mobile-section {
+  display: flex;
+  flex-basis: calc(100% * (2 / 3));
+  z-index: 2;
+}
+
+#nav-toggle-button { 
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid var(--border-color);
+  color: white;
+  cursor: pointer;
+  display: none;
+  gap: 0.8rem;
+  height: 100%;
+  justify-content: center;
+  outline: none;
+  padding: 0rem 3rem;
+  position: relative;
+  z-index: 3;
+}
+
+#nav-toggle-button:hover,
+#nav-toggle-button:hover > span {
+  color: var(--highlight-color);
+}
+
+#nav-toggle-button > span,
+#nav-toggle-button > i { 
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+}
+
+#nav-social-section,
+#nav-contact-section {
+  flex-grow: 1;
+}
+
+#nav-logo-section {
+  flex-basis: calc(100% / 3);
+  justify-content: flex-start;
+}
+
+#nav-logo-section > i {
+  font-size: 2.5rem;
+}
+
+#nav-link-section {
+  flex-basis: 50%;
+  gap: 6rem; 
+}
+
+#nav-social-section {
+  gap: 3rem;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+main > div {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: transform 400ms ease;  
+}
+
+main > div[data-status="inactive"] {
+  transform: translateX(-100%);
+  transition: none;
+}
+
+main > div[data-status="active"] {
+  transform: translateX(0%);
+}
+
+main > div[data-status="before"] {
+  transform: translateX(-100%);
+}
+
+main > div[data-status="after"] {
+  transform: translateX(100%);
+}
+
+main > div[data-status="becoming-active-from-before"] {
+  transform: translateX(-100%);
+  transition: none;
+}
+
+main > div[data-status="becoming-active-from-after"] {
+  transform: translateX(100%);
+  transition: none;
+}
+
+main > div > .div-section {
+  height: 100%;
+  display: flex;
+}
+
+main > div > .div-description-section,
+main > div > .div-nav-section {
+  border-left: 1px solid var(--border-color);
+}
+
+main > div > .div-title-section,
+main > div > .div-nav-section {
+  border-top: 1px solid var(--border-color);
+}
+
+main > div:first-child > .div-image-section {
+  background-image: url("https://images.unsplash.com/photo-1565626424178-c699f6601afd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80");
+}
+
+main > div:nth-child(2) > .div-image-section {
+  background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+}
+
+main > div:nth-child(3) > .div-image-section {
+  background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
+}
+
+main > div:nth-child(4) > .div-image-section {
+  background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
+}
+
+main > div > .div-image-section {
+  background-position: center;
+  background-size: cover;
+}
+
+main > div > .div-description-section {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem; 
+}
+
+main > div > .div-description-section > p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25em;
+}
+
+main > div > .div-description-section > p  > a:hover {
+  text-decoration: underline;
+}
+
+main > div > .div-title-section {
+  align-items: center; 
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+main > div > .div-title-section * {
+  color: white;
+}
+
+main > div > .div-title-section > h2 {
+  flex-basis: 50%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+main > div > .div-title-section > i {
+  color: rgba(255, 255, 255, 0.75);
+  font-size:  4rem;
+}
+
+main > div > .div-nav-section > .div-nav-button {
+  background-color: transparent;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+main > div > .div-nav-section > .div-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+main > div > .div-nav-section > .div-nav-button:nth-child(2) {
+  border-left: 1px solid var(--border-color);
+}
+
+@media(max-width: 1200px) {    
+  #nav-mobile-section {
+    flex-basis: calc(100% * 0.75);
+  }
+
+  #nav-logo-section {
+    flex-basis: calc(100% * 0.25);
+  }
+  
+  #nav-link-section {
+    flex-basis: calc(100% / 3);
+    gap: 3rem;
+  }
+
+  main {
+    overflow-y: auto;
+  }
+  
+  main > div {
+    grid-template-columns: none;
+    grid-template-rows: 1.5fr repeat(3, 0.75fr) 0.25fr;
+    height: max(900px, 100%);
+  }
+   
+  main > div > .div-title-section > h2 {
+    font-size: 3rem; 
+    line-height: 2.6rem;
+  }
+  
+  main > div > .div-title-section > i {
+    font-size: 3rem; 
+  }
+  
+  main > div > .div-description-section,
+  main > div > .div-nav-section {
+    border-left: none;
+  }
+
+  main > div > .div-image-section {
+    order: 1;
+  }
+  
+  main > div > .div-title-section {
+    border-bottom: 1px solid var(--border-color);
+    order: 2;
+  }
+  
+  main > div > .div-description-section {
+    justify-content: center;
+    order: 3;
+  }
+  
+  main > div > .div-nav-section {
+    border-bottom: 1px solid var(--border-color);
+    order: 4;
+  }
+}
+
+@media(max-width: 800px) {  
+  nav {
+    justify-content: space-between;  
+  }
+  
+  nav[data-toggled="true"] > #nav-mobile-section {  
+    transform: translateY(0%);
+  }
+
+  nav[data-toggled="true"] > #nav-toggle-button {
+    border-left: none;
+  }
+
+  nav[data-transitionable="true"] > #nav-mobile-section {
+    transition: transform 400ms ease;
+  }
+  
+  nav .nav-section {
+    border-left: none;
+    padding: 1.5rem 1rem;
+  }
+  
+  #nav-logo-section > a > i {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+  
+  #nav-mobile-section {
+    background-color: var(--background-color);
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    transform: translateY(-100%);
+  } 
+  
+  #nav-toggle-button {
+    display: flex;
+  }  
+  
+  #nav-link-section {
+    flex-basis: 60%;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  #nav-link-section > a {
+    font-size: 3rem; 
+  }
+  
+  #nav-social-section > a {
+    font-size: 2rem; 
+  }  
+  
+  #nav-contact-section {
+    padding-bottom: 4rem;
+  }
+  
+  main > div {
+    grid-template-rows: 1fr repeat(4, 0.5fr);
+    height: max(700px, 100%);
+  }
+  
+  main > div > .div-title-section {
+    padding: 2rem;
+  }
+  
+  main > div > .div-title-section > h2 {
+    flex-basis: 70%;
+    font-size: 1.75em; 
+    line-height: 1.5rem;
+  }
+  
+  main > div > .div-title-section > i {
+    font-size: 2rem; 
+  }
+  
+  main > div > .div-description-section {
+    padding: 2rem;
+  }
+  
+  main > div > .div-description-section > p {
+    font-size: 1rem;
+  }
+}
+
+/* -- YT link / Source link styles -- */
+
+main > div > .div-description-section > p  > .source-link {
+  color: var(--highlight-color);
+  display: inline;
+}
+
+main > div .yt-link,
+main > div .yt-link > i {
+  color: var(--yt-color);
+  display: inline;
+}
+    </style>
+
+<script src="https://kit.fontawesome.com/0f6186b609.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav data-toggled="false" data-transitionable="false">
+        <div id="nav-logo-section" class="nav-section">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <p>MULTIPLE CHOICE</P>
+        </div>
+        <div id="nav-mobile-section">
+          <div id="nav-link-section" class="nav-section">
+            <a href="#">SEE THIS MORE</a>
+            <a href="#">SEE THIS LESS</a>
+          </div>
+          <div id="nav-contact-section" class="nav-section">
+            <a href="#">CREATE ANOTHER</a>
+          </div>
+          <div id="nav-social-section" class="nav-section">
+            <a href="#">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">
+              <i class="fa-brands fa-youtube"></i>
+            </a>    
+            <a href="#">
+              <i class="fa-brands fa-codepen"></i>
+            </a>
+          </div>
+        </div>
+        <button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
+          <span>Menu</span>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+      
+      <main>
+        <div data-index="0" data-status="active">
+          <div class="div-image-section div-section"></div>
+          <div class="div-description-section div-section">
+            <p>
+              This is a recreation (from scratch) of <a class="source-link" href="https://www.dylanbrouwer.design/work" target="_blank">dylanbrouwer.design/work</a>. See how I did it <a class="yt-link" href="https://youtu.be/nG2IyH43xMU" target="_blank"><i class="fa-brands fa-youtube"></i></a>.
+            </p>
+          </div>
+          <div class="div-title-section div-section">
+            <h2>QUESTION</h2>
+           <i class="fa-light fa-question"></i>
+          </div>
+          <div class="div-nav-section div-section">
+            <button class="div-nav-button" type="button" onclick="handleLeftClick()">
+              <i class="fa-light fa-rotate"></i>
+            </button>
+            <button class="div-nav-button" type="button" onclick="handleRightClick()">
+              <i class="fa-light fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+</body>
+
+</html>

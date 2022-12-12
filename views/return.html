@@ -1,0 +1,210 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../OpenSans-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: bold;
+            font-weight: 700;
+            src: url('../OpenSans-Bold.ttf') format('truetype');
+        }
+
+        html {
+            background: #27272a;
+        }
+
+        body {
+            margin: 0;
+            width: max-content;
+            color: #FAFAFA;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+        #menu {
+            margin: 0;
+            padding: 15px;
+            background: #60a917;
+        }
+
+        #dark-menu {
+            margin: 0;
+            padding: 15px;
+            background: #008A00;
+        }
+
+        img {
+            height: 30px;
+        }
+
+        ul {
+            padding: 0px;
+        }
+
+        ul>li {
+            padding: 10px;
+            list-style: none;
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px;
+            width: 250px;
+            border: 1px solid #cccccc
+        }
+
+        a {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+        }
+
+        a:hover {
+            background-color: #4d4d4d;
+        }
+
+        p {
+            cursor: default;
+            margin: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            cursor: pointer;
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+            border: 0px solid #cccccc
+        }
+
+        .active,
+        .btn:hover {
+            background-color: #4d4d4d;
+        }
+
+        .z {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+            border: 0px solid #cccccc
+        }
+        
+        .x {
+            background-color: #4d4d4d;
+        }
+
+        .full-width {
+            display: inline-block;
+            width: 245px;
+        }
+        
+        .half-width {
+            display: inline-block;
+            width: 150;
+        }
+        
+        .sub-width {
+            display: inline-block;
+            width: 100;
+        }
+
+        .spacer {
+            margin-top: 15px;
+        }
+
+        .group div {
+            padding: 15px;
+            float: left;
+        }
+        
+        .scroll {
+            height: 125px;
+            overflow-y:auto;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>
+            <img src="/images/study.png" />
+            <h3>Study help thing</h4>
+        </li>
+        <li>
+            <h3 style="margin-top: -15px" id="examtag">Set name</h3>
+        </li>
+        <li style="margin-top:-45px">
+            <div class="group" style="width:100%">
+                <div>
+                    <p> Study duration </p>
+                    <p id="stduration" class="z">1 Week</p>
+                </div>
+                    <div>
+                        <p> #Questions </p>
+                        <p id="qamount" class="z">0 Qs</p>
+                    </div>
+            </div>
+                <button id="createnewq" class="full-width btn spacer">Create New Question</button>
+                <br>
+                <button id="showq" class="half-width btn spacer">Show Questions</button>
+                 <li id="shownq" class="scroll hidden">
+                    <div id="mex" class="hidden">
+                        <h3 id="qtitle">¿Como estas?</h3>
+                        <p id="qtype" style="margin-top: -10px" class="sub-width z">Multiple Choice</p>
+                         <div class="group" style="width:100%">
+                            <button id="stcorrect" class="z x" style="width:100">Soy bueno</button>
+                            <button id="stother1" class="z" style="width:100">Hoy bueno</button>
+                        </div>
+                         <div class="group" style="width:100%; margin-top: 5px">
+                            <button id="stother2" class="z" style="width:100">Soy mal</button>
+                            <button id="stother3" class="z" style="width:100">Joy benni</button>
+                        </div>
+                    </div>
+                    <div id="sex" class="hidden">
+                        <h3 id="qtitle">¿De dónde eres?</h3>
+                        <p id="qtype" style="margin-top: -10px" class="sub-width z">Scramble</p>
+                         <div class="group" style="width:100%">
+                            <button id="stcorrect" class="z x" style="width:100">Soy de Yelm WA</button>
+                            <button id="stother1" class="z" style="width:100">De soy WA Yelm</button>
+                        </div>
+                         <div class="group" style="width:100%; margin-top: 5px">
+                            <button id="stother2" class="z" style="width:100">WA Yelm soy de</button>
+                            <button id="stother3" class="z" style="width:100">Yelm soy de WA</button>
+                        </div>
+                    </div>
+                    <div id="pex" class="hidden">
+                        <h3 id="qtitle">¿De dónde eres?</h3>
+                        <p id="qtype" style="margin-top: -10px" class="sub-width z">Phrase</p><br>
+                         <p id="stcorrect" style="margin-top: -2px; width:175" class="full-width z x">Soy de Yelm WA.</p>
+                    </div>
+                </li>
+        </li>
+    </ul>
+    <ul id="dark-menu">
+        <p id="credit"> Created by: Justin Camin </p>
+    </ul>
+    <script src="/javascript/return.js"></script>
+    <script src="/javascript/questions.js"></script>
+</body>
+
+</html>

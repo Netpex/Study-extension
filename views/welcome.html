@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../OpenSans-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: bold;
+            font-weight: 700;
+            src: url('../OpenSans-Bold.ttf') format('truetype');
+        }
+
+        html {
+            background: #27272a;
+        }
+
+        body {
+            margin: 0;
+            width: max-content;
+            color: #FAFAFA;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+        #menu {
+            margin: 0;
+            padding: 15px;
+            background: #60A917;
+        }
+
+        #dark-menu {
+            margin: 0;
+            padding: 15px;
+            background: #008A00;
+        }
+
+        img {
+            height: 30px;
+        }
+
+        ul {
+            padding: 0px;
+        }
+
+        ul>li {
+            padding: 10px;
+            list-style: none;
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px;
+            width: 250px;
+            border: 1px solid #cccccc
+        }
+
+        a {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+        }
+
+        a:hover {
+            background-color: #4d4d4d;
+        }
+
+        p {
+            cursor: default;
+            margin: 5px;
+        }
+                
+        .btn {
+            background-color: #303030;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FAFAFA;
+            border: 0px solid #cccccc
+        }
+        
+        .active,
+        .btn:hover {
+            background-color: #4d4d4d;
+        }
+
+        .full-width {
+            display: inline-block;
+            width: 245px;
+        }
+
+        .spacer {
+            margin-top: 15px;
+        }
+        
+        .btn-group div {
+              cursor: pointer;
+              float: left;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>
+            <img src="/images/study.png" />
+            <h3>Study help thing</h4>
+        </li>
+        <li>
+            <p> Exam duration </p>
+            <div class="btn-group" style="width:100%">
+                <button id="1" class="btn duration active">1 Week</button>
+                <button id="2" class="btn duration">2 Weeks</button>
+                <button id="3" class="btn duration">3 Weeks</button>
+            </div>
+            <form id="exam">
+            <p> Exam name </p>
+            <input type="text" class="full-width" id="ename" name="ename" required="required"><br>
+            <button type="submit" id="create-exam" class="full-width btn spacer" >Create Exam</button>
+            <form>
+        </li>
+    </ul>
+    <ul id="dark-menu">
+        <p id="credit"> Created by: Justin Camin </p>
+    </ul>
+    <script src="/javascript/welcome.js"></script>
+</body>
+
+</html>
