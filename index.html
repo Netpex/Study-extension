@@ -341,11 +341,13 @@
             nav .nav-section {
                 border-left: none;
                 padding: 1.5rem 1rem;
+                display: inline-block;
             }
 
             #nav-logo-section>a>i {
                 font-size: 1.5rem;
                 margin-left: 1rem;
+                display:inline-block;
             }
 
             #nav-mobile-section {
@@ -434,7 +436,11 @@
                 class="div-option-button" type="button" onclick="handleRightClick()">Option 4</button>
             </div>
             <div class="div-description-section div-section">
-                <h1>Multiple Choice</h1>
+                <div id="nav-logo-section" class="nav-section">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <p style="Font-Size:45px; Margin-top:15px;"> Study help</P>
+                </div>
+                <h1 style="Margin-top:15%;">Multiple Choice</h1>
                 <p>Choose the best answer! 
                 <br><br>Created: 4/20/69<br>Exam: *Exam</p>
             </div>
