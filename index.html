@@ -177,23 +177,7 @@
             border-top: 1px solid var(--border-color);
         }
 
-        main>div:first-child>.div-image-section {
-            background-image: url("https://images.unsplash.com/photo-1565626424178-c699f6601afd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80");
-        }
-
-        main>div:nth-child(2)>.div-image-section {
-            background-image: url("https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
-        }
-
-        main>div:nth-child(3)>.div-image-section {
-            background-image: url("https://images.unsplash.com/photo-1660580554695-d2ca5008f1f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80");
-        }
-
-        main>div:nth-child(4)>.div-image-section {
-            background-image: url("https://images.unsplash.com/photo-1660766877755-4cac24f6cf21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
-        }
-
-        main>div>.div-image-section {
+        main>div>.div-qframe {
             background-position: center;
             background-size: cover;
         }
@@ -251,8 +235,50 @@
             background-color: rgba(255, 255, 255, 0.02);
         }
 
+        main>div>.div-nav-section>.div-nav-button:nth-child(1) {
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
         main>div>.div-nav-section>.div-nav-button:nth-child(2) {
             border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        main>div>.div-qframe {
+            display:block;
+        }
+        
+        main>div>.div-qframe>.div-option-button {
+            background-color: transparent;
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 3rem;
+            height: 50%;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        main>div>.div-qframe>.div-option-button:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        main>div>.div-qframe>.div-option-button:nth-child(1) {
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        main>div>.div-qframe>.div-option-button:nth-child(2) {
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        main>div>.div-qframe>.div-option-button:nth-child(3) {
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        main>div>.div-qframe>.div-option-button:nth-child(4) {
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         @media(max-width: 1200px) {
@@ -293,24 +319,6 @@
                 border-left: none;
             }
 
-            main>div>.div-image-section {
-                order: 1;
-            }
-
-            main>div>.div-title-section {
-                border-bottom: 1px solid var(--border-color);
-                order: 2;
-            }
-
-            main>div>.div-description-section {
-                justify-content: center;
-                order: 3;
-            }
-
-            main>div>.div-nav-section {
-                border-bottom: 1px solid var(--border-color);
-                order: 4;
-            }
         }
 
         @media(max-width: 800px) {
@@ -416,44 +424,19 @@
 </head>
 
 <body>
-    <nav data-toggled="false" data-transitionable="false">
-        <div id="nav-logo-section" class="nav-section">
-            <i class="fa-solid fa-book-bookmark"></i>
-            <p>MULTIPLE CHOICE</P>
-        </div>
-        <div id="nav-mobile-section">
-            <div id="nav-link-section" class="nav-section">
-                <a href="#">SEE THIS MORE</a>
-                <a href="#">SEE THIS LESS</a>
-            </div>
-            <div id="nav-contact-section" class="nav-section">
-                <a href="#">CREATE ANOTHER</a>
-            </div>
-            <div id="nav-social-section" class="nav-section">
-                <a href="#">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-                <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-                <a href="#">
-              <i class="fa-brands fa-codepen"></i>
-            </a>
-            </div>
-        </div>
-        <button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
-          <span>Menu</span>
-          <i class="fa-solid fa-bars"></i>
-        </button>
-    </nav>
 
     <main>
         <div data-index="0" data-status="active">
-            <div class="div-image-section div-section"></div>
+            <div class="div-qframe div-section">
+                <button class="div-option-button" type="button" onclick="handleRightClick()">Option 1</button><button
+                class="div-option-button" type="button" onclick="handleRightClick()">Option 2</button>
+                <button class="div-option-button" type="button" onclick="handleRightClick()">Option 3</button><button
+                class="div-option-button" type="button" onclick="handleRightClick()">Option 4</button>
+            </div>
             <div class="div-description-section div-section">
-                <p>
-                    This is a recreation (from scratch) of <a class="source-link" href="https://www.dylanbrouwer.design/work" target="_blank">dylanbrouwer.design/work</a>. See how I did it <a class="yt-link" href="https://youtu.be/nG2IyH43xMU" target="_blank"><i class="fa-brands fa-youtube"></i></a>.
-                </p>
+                <h1>Multiple Choice</h1>
+                <p>Choose the best answer! 
+                <br><br>Created: 4/20/69<br>Exam: *Exam</p>
             </div>
             <div class="div-title-section div-section">
                 <h2>QUESTION</h2>
