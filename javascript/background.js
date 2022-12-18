@@ -35,23 +35,29 @@ const newPageLoad = async () => {
     var tmp = document.createElement("div");
     tmp.appendChild(iframe);
     
-    console.log(iframe)
-    const iframeDocument = tmp.querySelector("iframe").contentDocument;
-    console.log(iframeDocument);
-    chrome.storage.sync.get(["qs"]).then((result) => {
-        const a = result.qs;
-        console.log(a);
-        let random = Math.floor(1 + Math.random() * a.length);
-        const q = a[random];
-
-        const question = iframeDocument.querySelector('#qtitle');
-        console.log(question);
-        question.innerHTML = q.question;
-    });
-    
     var pausepage = '<html><head><title>Paused by Study Help</title></head><body style="margin:0 !important;">' + tmp.innerHTML + '</body></html>';
 
     document.documentElement.innerHTML = pausepage;  0
 
+
+    console.log(iframe)
+    if (iframe.contentDocument) {
+        //.write("https://netpex.info/question.html");
+        chrome.storage.sync.get(["qs"]).then((result) => {
+            const a = result.qs;
+            console.log(a);
+            let random = Math.floor(1 + Math.random() * a.length);
+            const q = a[random];
+    
+            const question = iframeDocument.querySelector('#qtitle');
+            console.log(question);
+            question.innerHTML = q.question;
+        });
+      } else if (iframe.contentWindow) {
+        console.log("ahh");
+        // iframe.contentWindow.document.body.innerHTML = "https://netpex.info/question.html";
+      }
+
+      
 
 }
